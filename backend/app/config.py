@@ -2,9 +2,18 @@ import os
 import shutil
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = BASE_DIR / "data"
-DATA_DIR.mkdir(exist_ok=True)
+# Resolve data directory from multiple possible root contexts
+candidate_dirs = [
+    Path(__file__).resolve().parent.parent / "data",         # backend/data
+    Path(__file__).resolve().parent.parent.parent / "data",  # <root>/data
+    Path.cwd() / "backend" / "data",
+    Path.cwd() / "data",
+]
+DATA_DIR = next((d for d in candidate_dirs if (d / "cybertrace.db").exists()), candidate_dirs[0])
+try:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+except Exception:
+    pass
 
 if os.getenv("VERCEL"):
     # In Vercel serverless environments, the root directory is read-only.

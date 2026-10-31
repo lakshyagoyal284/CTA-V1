@@ -8,7 +8,13 @@ import networkx as nx
 
 from backend.app.intelligence.extractor import extract_entities_from_text, classify_modus_operandi
 
-BENCHMARK_PATH = Path(__file__).resolve().parent.parent / "data" / "evaluation_benchmark.json"
+candidate_benchmark_paths = [
+    Path(__file__).resolve().parent / "data" / "evaluation_benchmark.json",
+    Path(__file__).resolve().parent.parent / "data" / "evaluation_benchmark.json",
+    Path.cwd() / "backend" / "data" / "evaluation_benchmark.json",
+    Path.cwd() / "data" / "evaluation_benchmark.json",
+]
+BENCHMARK_PATH = next((p for p in candidate_benchmark_paths if p.exists()), candidate_benchmark_paths[0])
 
 def run_evaluation_benchmark() -> Dict[str, Any]:
     """
