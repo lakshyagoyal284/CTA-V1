@@ -3,7 +3,32 @@ import time
 from pathlib import Path
 from typing import Dict, Any, List
 from datetime import datetime
-from sklearn.metrics import adjusted_rand_score
+def adjusted_rand_score(labels_true: List[int], labels_pred: List[int]) -> float:
+    """Pure-Python exact Hubert & Arabie (1985) Adjusted Rand Index calculation."""
+    n = len(labels_true)
+    if n <= 1:
+        return 1.0
+    from collections import defaultdict
+    contingency = defaultdict(int)
+    row_sums = defaultdict(int)
+    col_sums = defaultdict(int)
+    for u, v in zip(labels_true, labels_pred):
+        contingency[(u, v)] += 1
+        row_sums[u] += 1
+        col_sums[v] += 1
+    
+    comb2 = lambda x: x * (x - 1) // 2
+    sum_comb_c = sum(comb2(v) for v in contingency.values())
+    sum_comb_r = sum(comb2(v) for v in row_sums.values())
+    sum_comb_c_col = sum(comb2(v) for v in col_sums.values())
+    total_comb = comb2(n)
+    
+    expected = (sum_comb_r * sum_comb_c_col) / total_comb if total_comb > 0 else 0.0
+    max_idx = (sum_comb_r + sum_comb_c_col) / 2.0
+    denom = max_idx - expected
+    if denom == 0:
+        return 1.0
+    return float((sum_comb_c - expected) / denom)
 import networkx as nx
 
 from backend.app.intelligence.extractor import extract_entities_from_text, classify_modus_operandi

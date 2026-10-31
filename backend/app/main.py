@@ -51,15 +51,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include Routers
-app.include_router(complaints.router, prefix=API_V1_STR)
-app.include_router(intelligence.router, prefix=API_V1_STR)
-app.include_router(graph.router, prefix=API_V1_STR)
-app.include_router(scenarios.router, prefix=API_V1_STR)
-app.include_router(evaluation.router, prefix=API_V1_STR)
-app.include_router(reports.router, prefix=API_V1_STR)
+# Include Routers under both /api and "" so that Vercel routes match whether or not /api is stripped
+for pfx in ["/api", ""]:
+    app.include_router(complaints.router, prefix=pfx)
+    app.include_router(intelligence.router, prefix=pfx)
+    app.include_router(graph.router, prefix=pfx)
+    app.include_router(scenarios.router, prefix=pfx)
+    app.include_router(evaluation.router, prefix=pfx)
+    app.include_router(reports.router, prefix=pfx)
 
 @app.get("/")
+@app.get("/api")
 def root_endpoint():
     return {
         "project": PROJECT_NAME,
@@ -72,6 +74,7 @@ def root_endpoint():
         "api_v1_prefix": API_V1_STR
     }
 
+@app.get("/health")
 @app.get("/api/health")
 def healthcheck():
     return {
