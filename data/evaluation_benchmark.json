@@ -1,0 +1,267 @@
+{
+  "benchmark_metadata": {
+    "version": "1.0-standardized",
+    "description": "Standardized synthetic benchmark evaluation suite for CyberTrace AI",
+    "total_test_samples": 25,
+    "labeled_by": "CyberTrace AI Research Benchmark Lab",
+    "disclaimer": "Synthetic ground-truth test corpus for prototype evaluation only. Does not represent live operational deployment data."
+  },
+  "test_cases": [
+    {
+      "id": "BENCH-01",
+      "text": "Victim was duped in Telegram job scam by @earn_daily_bot. Transferred Rs 45000 to UPI pay.mule01@okhdfcbank after calling +91-98210-11223.",
+      "expected_entities": [
+        {"type": "TELEGRAM", "value": "@earn_daily_bot"},
+        {"type": "UPI", "value": "pay.mule01@okhdfcbank"},
+        {"type": "PHONE", "value": "+91-98210-11223"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_01"
+    },
+    {
+      "id": "BENCH-02",
+      "text": "YouTube like task prepaid scheme via Telegram @earn_daily_bot. Sent Rs 80000 to UPI pay.mule01@okhdfcbank. Contact phone +91-98210-11223.",
+      "expected_entities": [
+        {"type": "TELEGRAM", "value": "@earn_daily_bot"},
+        {"type": "UPI", "value": "pay.mule01@okhdfcbank"},
+        {"type": "PHONE", "value": "+91-98210-11223"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_01"
+    },
+    {
+      "id": "BENCH-03",
+      "text": "Rating task scam coordinator calling from mobile +91-98210-11223 demanded recharge fee to account 981273910293 with IFSC HDFC0001928.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-98210-11223"},
+        {"type": "BANK_ACCOUNT", "value": "981273910293"},
+        {"type": "IFSC", "value": "HDFC0001928"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_01"
+    },
+    {
+      "id": "BENCH-04",
+      "text": "Electricity bill disconnection alert SMS. Pay bill at https://power-discom-billpay.in or call nodal helpline +91-94250-99881. Support email support@power-discom-billpay.in.",
+      "expected_entities": [
+        {"type": "URL", "value": "power-discom-billpay.in"},
+        {"type": "PHONE", "value": "+91-94250-99881"},
+        {"type": "EMAIL", "value": "support@power-discom-billpay.in"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_02"
+    },
+    {
+      "id": "BENCH-05",
+      "text": "Power cut warning message directed victim to portal https://power-discom-billpay.in and made victim deposit money to account 5010091823901.",
+      "expected_entities": [
+        {"type": "URL", "value": "power-discom-billpay.in"},
+        {"type": "BANK_ACCOUNT", "value": "5010091823901"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_02"
+    },
+    {
+      "id": "BENCH-06",
+      "text": "Phishing caller on +91-94250-99881 asked victim to download QuickSupport APK for electricity meter update. Defrauded of Rs 92000.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-94250-99881"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_02"
+    },
+    {
+      "id": "BENCH-07",
+      "text": "Victim blackmailed by loan app recovery agent calling from +91-98710-44556. Threatening WhatsApp messages and morphed photos sent. Paid to UPI loan.payback@paytm.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-98710-44556"},
+        {"type": "UPI", "value": "loan.payback@paytm"}
+      ],
+      "expected_mo": "LOAN_APP_EXTORTION",
+      "cluster_id": "CLUSTER_EXTORT_03"
+    },
+    {
+      "id": "BENCH-08",
+      "text": "Instant loan app harassment with contact list circulation threats from phone +91-98710-44556. Demanded payment to mule UPI loan.payback@paytm.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-98710-44556"},
+        {"type": "UPI", "value": "loan.payback@paytm"}
+      ],
+      "expected_mo": "LOAN_APP_EXTORTION",
+      "cluster_id": "CLUSTER_EXTORT_03"
+    },
+    {
+      "id": "BENCH-09",
+      "text": "Digital arrest scam where fake CBI officer on Skype called from +91-97110-33221 claiming parcel with contraband drugs. Escrow transfer to UPI safe.escrow@ybl.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-97110-33221"},
+        {"type": "UPI", "value": "safe.escrow@ybl"}
+      ],
+      "expected_mo": "DIGITAL_EXTORTION_ARREST",
+      "cluster_id": "CLUSTER_ARREST_04"
+    },
+    {
+      "id": "BENCH-10",
+      "text": "Fake police officer Skype interrogation. Caller +91-97110-33221 coerced victim into depositing Rs 350000 into account 40192839102 IFSC SBIN0001029.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-97110-33221"},
+        {"type": "BANK_ACCOUNT", "value": "40192839102"},
+        {"type": "IFSC", "value": "SBIN0001029"}
+      ],
+      "expected_mo": "DIGITAL_EXTORTION_ARREST",
+      "cluster_id": "CLUSTER_ARREST_04"
+    },
+    {
+      "id": "BENCH-11",
+      "text": "Prepaid Telegram task fraud managed by @speedy_crypto_tasks. Complainant transferred Rs 120000 to UPI merchant.trust@icici.",
+      "expected_entities": [
+        {"type": "TELEGRAM", "value": "@speedy_crypto_tasks"},
+        {"type": "UPI", "value": "merchant.trust@icici"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_05"
+    },
+    {
+      "id": "BENCH-12",
+      "text": "Fake hotel review task on Telegram @speedy_crypto_tasks. Payouts stopped after victim paid Rs 200000 to beneficiary A/C 91029384756 IFSC ICIC0000192.",
+      "expected_entities": [
+        {"type": "TELEGRAM", "value": "@speedy_crypto_tasks"},
+        {"type": "BANK_ACCOUNT", "value": "91029384756"},
+        {"type": "IFSC", "value": "ICIC0000192"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_05"
+    },
+    {
+      "id": "BENCH-13",
+      "text": "Bank KYC update SMS with link https://sbi-netbanking-verify.in. Received call from +91-93110-88776 demanding OTP.",
+      "expected_entities": [
+        {"type": "URL", "value": "sbi-netbanking-verify.in"},
+        {"type": "PHONE", "value": "+91-93110-88776"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_06"
+    },
+    {
+      "id": "BENCH-14",
+      "text": "Phishing site sbi-netbanking-verify.in accessed by victim. Debit card credentials harvested and unauthorized payment sent to UPI gate.collect@axl.",
+      "expected_entities": [
+        {"type": "URL", "value": "sbi-netbanking-verify.in"},
+        {"type": "UPI", "value": "gate.collect@axl"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_06"
+    },
+    {
+      "id": "BENCH-15",
+      "text": "Crypto trading investment group on WhatsApp promised 500 percent return. Transferred 1.5 ETH to wallet 0x71C8293810293810293810293810293810293849. Contact email broker@alpha-fx-returns.com.",
+      "expected_entities": [
+        {"type": "CRYPTO_WALLET", "value": "0x71C8293810293810293810293810293810293849"},
+        {"type": "EMAIL", "value": "broker@alpha-fx-returns.com"}
+      ],
+      "expected_mo": "INVESTMENT_TRADING_FRAUD",
+      "cluster_id": "CLUSTER_CRYPTO_07"
+    },
+    {
+      "id": "BENCH-16",
+      "text": "Forex trading platform investment scam. Demanded withdrawal fee to crypto address 0x71C8293810293810293810293810293810293849. Contact phone +91-99881-22334.",
+      "expected_entities": [
+        {"type": "CRYPTO_WALLET", "value": "0x71C8293810293810293810293810293810293849"},
+        {"type": "PHONE", "value": "+91-99881-22334"}
+      ],
+      "expected_mo": "INVESTMENT_TRADING_FRAUD",
+      "cluster_id": "CLUSTER_CRYPTO_07"
+    },
+    {
+      "id": "BENCH-17",
+      "text": "Digital arrest intimidation call by suspect claiming Mumbai Police Cyber Cell on +91-97270-33418. Video call on Skype.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-97270-33418"}
+      ],
+      "expected_mo": "DIGITAL_EXTORTION_ARREST",
+      "cluster_id": "CLUSTER_ARREST_08"
+    },
+    {
+      "id": "BENCH-18",
+      "text": "Fake customs parcel extortion call from +91-97270-33418. Demanded transfer to escrow UPI extort.release99@paytm.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-97270-33418"},
+        {"type": "UPI", "value": "extort.release99@paytm"}
+      ],
+      "expected_mo": "DIGITAL_EXTORTION_ARREST",
+      "cluster_id": "CLUSTER_ARREST_08"
+    },
+    {
+      "id": "BENCH-19",
+      "text": "Prepaid job task commission fraud. Complainant transferred Rs 55000 to UPI taskpay.merchant88@okhdfcbank via contact phone +91-98201-44719.",
+      "expected_entities": [
+        {"type": "UPI", "value": "taskpay.merchant88@okhdfcbank"},
+        {"type": "PHONE", "value": "+91-98201-44719"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_09"
+    },
+    {
+      "id": "BENCH-20",
+      "text": "YouTube subscriber booster task coordinator mobile +91-98201-44719 asked for funds to UPI taskpay.merchant88@okhdfcbank.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-98201-44719"},
+        {"type": "UPI", "value": "taskpay.merchant88@okhdfcbank"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_09"
+    },
+    {
+      "id": "BENCH-21",
+      "text": "Electricity disconnection phishing alert from +91-94150-88219 leading to secure-billpay-update.in. Paid via UPI quickpay.energy@axl.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-94150-88219"},
+        {"type": "URL", "value": "secure-billpay-update.in"},
+        {"type": "UPI", "value": "quickpay.energy@axl"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_10"
+    },
+    {
+      "id": "BENCH-22",
+      "text": "Fake bill payment notification from alerts@secure-billpay-update.in for power bill. Victim transferred to account 5010049281729 IFSC HDFC0001829.",
+      "expected_entities": [
+        {"type": "EMAIL", "value": "alerts@secure-billpay-update.in"},
+        {"type": "BANK_ACCOUNT", "value": "5010049281729"},
+        {"type": "IFSC", "value": "HDFC0001829"}
+      ],
+      "expected_mo": "PHISHING_KYC_SPOOF",
+      "cluster_id": "CLUSTER_PHISH_10"
+    },
+    {
+      "id": "BENCH-23",
+      "text": "Instant loan app blackmail from WhatsApp number +91-98930-11204 threatening contact list leak. Coerced into UPI payment extort.release99@paytm.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-98930-11204"},
+        {"type": "UPI", "value": "extort.release99@paytm"}
+      ],
+      "expected_mo": "LOAN_APP_EXTORTION",
+      "cluster_id": "CLUSTER_EXTORT_11"
+    },
+    {
+      "id": "BENCH-24",
+      "text": "Threatening recovery calls from +91-98930-11204 for online loan. Victim transferred Rs 120000 to UPI loan.recovery.safe@ybl.",
+      "expected_entities": [
+        {"type": "PHONE", "value": "+91-98930-11204"},
+        {"type": "UPI", "value": "loan.recovery.safe@ybl"}
+      ],
+      "expected_mo": "LOAN_APP_EXTORTION",
+      "cluster_id": "CLUSTER_EXTORT_11"
+    },
+    {
+      "id": "BENCH-25",
+      "text": "Prepaid hotel rating task scam on Telegram @fast_payouts_in with payment sent to UPI taskpay.merchant88@okhdfcbank.",
+      "expected_entities": [
+        {"type": "TELEGRAM", "value": "@fast_payouts_in"},
+        {"type": "UPI", "value": "taskpay.merchant88@okhdfcbank"}
+      ],
+      "expected_mo": "TASK_JOB_SCAM",
+      "cluster_id": "CLUSTER_JOB_09"
+    }
+  ]
+}
